@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    html{
+        height:100%;
+        width:100%;
+    }
+    body{
+        background-color: white;
+        height:100%;
+        width:100%;
+        font-size:50px;
+        
+    }
+    img{
+        width:50px;
+        height:50px;
+    }
+   div{
+       position:relative;
+       float:left;
+       width:430px;
+       height:60px;
+       left:calc(50% - 215px);
+       top:calc(50% - 30px);
+       border:1px solid black;
+   }
+    </style>
+    <script type="text/javascript">
+   // 间隔型
+//    function show(){
+//        alert("定时3秒");
+//    }
+//      setInterval(show,3000);
+  //延时型
+//   function show(){
+//       alert("延时3秒");
+//   }
+//   setTimeout(show,3000)
+function toDou(n){
+    if(n<10){
+        return '0'+n;
+    }
+    else{
+        return ''+n;
+    }
+}
+window.onload=function(){
+    var oBtn1=document.getElementById('btn1');
+    var oBtn2=document.getElementById('btn2');
+    var timer=null;
+   
+    oBtn1.onclick=function(){
+        
+        timer=setInterval(tick,1000)
+        tick();
+    }
+    oBtn2.onclick=function(){
+        clearInterval(timer);
+    }
+    function tick(){
+    var aImg=document.getElementsByTagName("img");
+    var oDate=new Date();
+    var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+    for (var i=0;i<aImg.length;i++){
+        aImg[i].src="../javascript/images/"+str.charAt(i)+".jpg";
+    }
+}
+// setInterval(tick,1000)
+// tick();
+
+}
+    </script>
+</head>
+<body>
+    <input type="button" id="btn1" value="开启">
+    <input type="button" id="btn2" value="关闭">
+<div>
+<img src="../javascript/images/0.jpg" alt="数字2" >
+<img src="../javascript/images/0.jpg" alt="数字2" >
+:
+<img src="../javascript/images/0.jpg" alt="数字2" >
+<img src="../javascript/images/0.jpg" alt="数字2" >
+:
+<img src="../javascript/images/0.jpg" alt="数字2" >
+<img src="../javascript/images/0.jpg" alt="数字2" >
+</div>
+
+</body>
+</html>
